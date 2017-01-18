@@ -19,6 +19,7 @@ from django.contrib.auth.models import User
 from rest_framework import routers, serializers, viewsets, authtoken
 from tracker import views
 from panel import views as panelviews
+from rest_framework.authtoken import views as authviews
 from django.conf import settings
 from django.conf.urls.static import static
 from django.contrib.auth import views as auth_views_html
