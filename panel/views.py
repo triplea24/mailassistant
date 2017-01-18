@@ -36,7 +36,7 @@ def panel(request):
     # return HttpResponse("Panel")
     user = request.user
     mails = Mail.objects.filter(sender = user)
-    paginator = Paginator(mail, 5)
+    paginator = Paginator(mails, 5)
 
     page = request.GET.get('page')
     try:
