@@ -35,7 +35,7 @@ def register(request):
 def panel(request):
     # return HttpResponse("Panel")
     user = request.user
-    mails = Log.objects.filter(mail = mail)
+    mails = Mail.objects.filter(sender = user)
     paginator = Paginator(mail, 5)
 
     page = request.GET.get('page')
