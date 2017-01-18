@@ -4,12 +4,13 @@ from django.shortcuts import redirect
 from django.contrib.auth.decorators import login_required
 # Create your views here.
 
-@login_required
+@login_required(login_url = '/login/')
 def index(request):
 	# t = loader.get_template('index.html')
     # c = {'foo': 'bar'}
     # return HttpResponse(t.render(c, request), content_type='application/xhtml+xml')
     return HttpResponse("This is the first page")
-@login_required
+
+@login_required(login_url = '/login/')
 def panel(request):
 	return HttpResponse("Panel")

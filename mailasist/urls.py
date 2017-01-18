@@ -38,4 +38,6 @@ urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
     url(r'^dashboard',include('panel.urls')),
     url(r'^',include('panel.urls')),
+    url(r'^login/$', auth_views.login, name='login'),
+    url(r'^logout/$', auth_views.logout, name='logout'),
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
