@@ -63,9 +63,9 @@ def show(request,track_key):
 
     mail = Mail.objects.filter(track_key = track_key)
     
-    tos = Log.objects.filter(mail = mail , typesOfReceiption = 'T')
-    ccs = Log.objects.filter(mail = mail , typesOfReceiption = 'C')
-    bccs = Log.objects.filter(mail = mail , typesOfReceiption = 'B')
+    tos = Receiver.objects.filter(mail = mail , type_of_receiption = 'T')
+    ccs = Receiver.objects.filter(mail = mail , type_of_receiption = 'C')
+    bccs = Receiver.objects.filter(mail = mail , type_of_receiption = 'B')
 
     logs = Log.objects.filter(mail = mail)
     paginator = Paginator(logs, 5)
