@@ -59,7 +59,14 @@ def panel(request):
 
 @login_required(login_url = '/login/')
 def show(request,track_key):
+    username = request.user.username
+
     mail = Mail.objects.filter(track_key = track_key)
+    
+    tos = Log.objects.filter(mail = mail , typesOfReceiption = 'T')
+    ccs = Log.objects.filter(mail = mail , typesOfReceiption = 'C')
+    bccs = Log.objects.filter(mail = mail , typesOfReceiption = 'B')
+
     logs = Log.objects.filter(mail = mail)
     paginator = Paginator(logs, 5)
 
@@ -71,4 +78,4 @@ def show(request,track_key):
         logs = paginator.page(1)
     except EmptyPage:
         logs = paginator.page(paginator.num_pages)
-    return render(request, 'show.html', {'logs': logs})
+    return render(request, 'show.html', {'mail':mail,'tos' : tos, 'ccs' : ccs, 'bccs' : bccs , 'logs': logs , 'username' : username})

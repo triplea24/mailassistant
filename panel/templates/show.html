@@ -1,44 +1,50 @@
 <html>
 <head>
-<link rel="stylesheet" type="text/css" href="mycss.css">
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static "panel/mycss.css" %}">
 </head>
 <body>
 
-<div class="mailbox2">
-<h1 style="margin-bottom:30px;">Mamad bagher raftebod bashgah</h1>
-<p>diroooz</p>
-<p>Read <span>18<span> time</p>
-<p>Not read yet </p>
-<p>to: <span>farzam.mirmoeini@gmail.com</span><span>,</span> </p>
-</div>
+	<div class="mailbox2">
+		<h1 style="margin-bottom:30px;">{{mail.subject}}</h1>
+		{% if mail.last_read }
+			<p>{{mail.last_read}}</p>
+			<p>Read <span>{{mail.count}}<span> times</p>
+		{% else %}
+			<p>Not read yet </p>
+		{% endif %}
+		<p>to : 
+			{{% for to in tos %}}
+				<span>{{to.email}}</span><span>,</span>
+			{{% endfor %}} 
 
+		</p>
+		<p>cc : 
+			{{% for cc in ccs %}}
+				<span>{{cc.email}}</span><span>,</span>
+			{{% endfor %}} 
+			
+		</p>
+		<p>bcc : 
+			{{% for bcc in bccs %}}
+				<span>{{bcc.email}}</span><span>,</span>
+			{{% endfor %}} 
+			
+		</p>
+	</div>
 
-<h3 class="last">LATEST EMAIL OPENS</h3>
-
-<div class="insidemail">
-<div class="shape"></div>
-<h4>One of the recepients read this email</h4>
-<p>dirooz</p>
-</div>
-
-<div class="insidemail">
-<div class="shape"></div>
-<h4>One of the recepients read this email</h4>
-<p>dirooz</p>
-</div>
-
-<div class="insidemail">
-<div class="shape"></div>
-<h4>One of the recepients read this email</h4>
-<p>dirooz</p>
-</div>
-
-<div class="insidemail">
-<div class="shape"></div>
-<h4>One of the recepients read this email</h4>
-<p>dirooz</p>
-</div>
-
+	{% if mail.count > 0 %}
+		<h3 class="last">LATEST EMAIL OPENS</h3>	
+		{% for log in logs %}
+			<div class="insidemail">
+				<div class="shape"></div>
+				<h4>One of the recepients read this email</h4>
+				<p>{{ log.timestamp }}</p>
+			</div>
+		{% endfor %}
+	{% else %}
+		<p>Dear {{ username }}, Sorry! No one has read your email yet. Be strong, Be patient! :(</p>
+	{% endif %}
 
 </body>
 </html>
