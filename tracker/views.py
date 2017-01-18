@@ -12,9 +12,6 @@ from time import time
 from datetime import datetime
 from PIL import Image
 
-def index(request):
-    return HttpResponse("Hello, world. You're at the polls index.")
-
 def track(request,uuid):
     list_of_mails = Mail.objects.filter(track_key = uuid)
     print(get_client_ip(request))

@@ -18,6 +18,7 @@ from django.contrib import admin
 from django.contrib.auth.models import User
 from rest_framework import routers, serializers, viewsets, authtoken
 from tracker import views
+from panel import views
 from rest_framework.authtoken import views as authviews
 from django.conf import settings
 from django.conf.urls.static import static
@@ -35,4 +36,6 @@ urlpatterns = [
     url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework')),
     url(r'^track/', include('tracker.urls')),
     url(r'^admin/', include(admin.site.urls)),
+    url(r'^dashboard',include('panel.urls')),
+    url(r'^',include('panel.urls')),
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

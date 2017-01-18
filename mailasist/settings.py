@@ -40,6 +40,7 @@ INSTALLED_APPS = (
     'tracker',
     'rest_framework',
     'rest_framework.authtoken',
+    'panel',
 )
 
 MIDDLEWARE_CLASSES = (
