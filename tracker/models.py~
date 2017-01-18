@@ -1,0 +1,32 @@
+from django.db import models
+from django.contrib.auth.models import User
+from django.db.models.signals import post_save
+from django.dispatch import receiver
+
+class Mail(models.Model):
+	sender = models.OneToOneField(User)
+	sent_at = models.DateTimeField(auto_now_add=True)
+	subject = models.TextField()
+class TrackKey(models.Model):
+	keyLength = 36
+	key = models.CharField(max_length = keyLength, unique = True , editable = False )
+	counter = models.IntegerField(default = 0)
+	mail = models.OneToOneField(Mail)
+class Receiver(models.Model):
+	mail = models.ForeignKey(Mail)
+	email = models.EmailField()
+	typesOfReceiption = (
+		('T','TO'),
+		('C','CC'),
+		('B','BCC'),
+	)
+	_type = models.CharField(max_length=1,choices = typesOfReceiption)
+class Track(models.Model):
+	read_at = models.DateTimeField(auto_now_add=True)
+	track_key = models.ForeignKey(TrackKey)
+#	url = models.URLField(unique=False,null = True)
+
+@receiver(post_save, sender=Track, dispatch_uid="update_track_counter")
+def update_track(sender, instance, **kwargs):
+	instance.track_key.counter += 1
+	instance.track_key.save()

@@ -1,0 +1,11 @@
+from django.contrib import admin
+from .models import TrackKey
+from .models import Mail
+from .models import Receiver
+from .models import Track
+
+admin.site.register(TrackKey)
+admin.site.register(Mail)
+admin.site.register(Receiver)
+admin.site.register(Track)
+
