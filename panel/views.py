@@ -11,7 +11,8 @@ def index(request):
     # return HttpResponse(t.render(c, request), content_type='application/xhtml+xml')
     return HttpResponse("This is the first page")
 
-# def register(request):
+def register(request):
+    return HttpResponse("Register")
 # 	if request.method == 'POST':
 #         form = RegistrationForm(request.POST)
 #         if form.is_valid():
