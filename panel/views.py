@@ -60,4 +60,4 @@ def show(request,track_id):
         logs = paginator.page(1)
     except EmptyPage:
         logs = paginator.page(paginator.num_pages)
-     return render(request, 'show.html', {'logs': logs})
+    return render(request, 'show.html', {'logs': logs})
