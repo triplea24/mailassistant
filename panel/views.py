@@ -36,6 +36,10 @@ def panel(request):
     # return HttpResponse("Panel")
     user = request.user
     mails = Mail.objects.filter(sender = user)
+
+    total = Mail.objects.count()
+
+
     paginator = Paginator(mails, 5)
 
     page = request.GET.get('page')
@@ -46,11 +50,16 @@ def panel(request):
         res = paginator.page(1)
     except EmptyPage:
         res = paginator.page(paginator.num_pages)
-	return render(request, 'index.html', {'mails': res})
+    start = res.start_index()
+    end = res.end_index()
+
+    # return HttpResponse('page : %s' % str(page))
+
+    return render(request, 'index.html', {'mails': res,'start' : start , 'end' : end , 'total' : total})
 
 @login_required(login_url = '/login/')
-def show(request,track_id):
-    mail = Mail.objects.filter(track_id = track_id)
+def show(request,track_key):
+    mail = Mail.objects.filter(track_key = track_key)
     logs = Log.objects.filter(mail = mail)
     paginator = Paginator(logs, 5)
 

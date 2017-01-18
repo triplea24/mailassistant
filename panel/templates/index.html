@@ -1,27 +1,31 @@
-<!-- <html>
+ <html>
 <head>
-<link rel="stylesheet" type="text/css" href="mycss.css">
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static "panel/mycss.css" %}">
 </head>
 <body>
+    <p><h1>Showing emails {{ start }} - {{ end }} of {{ total }}</h1></p>
 
-<h1>showing result <span>21</span> of <span>100</span></h1>
-
-
-	{% for mail in mails %}
-		<a href="#">
-			<div class="mailbox">
-				<h3>{{ mail.subject }}</h3>
-				<p>{{ mail.last_read}}</p>
-				<p>Read <span>18<span> time</p>
-				<p>Not read yet </p>
-				<p>to: <span>farzam.mirmoeini@gmail.com</span><span>,</span> </p>
-			</div>
-		</a>
-	{% endfor %}
-	
-
+    {% if mails|length > 0 %}
+    	{% for mail in mails %}
+    		<a href="dashboard/show/{{mail.track_key}}">
+    			<div class="mailbox">
+    				<h3>{{ mail.subject }}</h3>
+    				<p>{{ mail.last_read}}</p>
+    				{% if mail.count > 0 %}
+    				    <p>Read <span>{{ mail.count }}<span> time</p>
+    				{% else %}
+    				    <p>Not read yet </p>
+    				{% endif %}
+    				<p>to: <span>farzam.mirmoeini@gmail.com</span><span>,</span> </p>
+    			</div>
+    		</a>
+    	{% endfor %}
+    {% else %}
+        <p>You do not have any emails!</p>
+    {% endif %}
 
 </body>
-</html> -->
+</html>
 
-Index
+<!--Index-->
