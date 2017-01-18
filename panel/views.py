@@ -32,7 +32,7 @@ def register(request):
 
 @login_required(login_url = '/login/')
 def panel(request):
-    return HttpResponse("Panel")
+    # return HttpResponse("Panel")
     user = request.user
     mails = Log.objects.filter(mail = mail)
     paginator = Paginator(mail, 5)
