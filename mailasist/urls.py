@@ -37,7 +37,7 @@ urlpatterns = [
     url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework')),
     url(r'^track/', include('tracker.urls')),
     url(r'^admin/', include(admin.site.urls)),
-    url(r'^dashboard',include('panel.urls')),
+    # url(r'^dashboard',include('panel.urls')),
     url(r'^',include('panel.urls')),
     # url(r'^dashboard',include('panel.urls')),
     # url(r'^dashboard/',include('panel.urls')),
