@@ -1,0 +1,54 @@
+@font-face {
+  font-family: 'fontbold';
+  src: 
+       url('ubuntu/Ubuntu-B.ttf')  format('truetype') ;
+ 
+}
+
+@font-face {
+  font-family: 'fontreg';
+  src: 
+       url('ubuntu/Ubuntu-R.ttf')  format('truetype') ;
+ 
+}
+
+body
+{
+	padding: 0px;
+	padding-top: 20px;
+	font-family: fontreg;
+	background-color: #edfdf3;
+}
+a
+{
+		text-decoration: none !important;
+}
+
+.mailbox
+{
+	display: block;
+	border : none;
+	border-top : 1px solid #ccc;
+	text-align: left;
+	padding-left: 50px;
+	line-height: 60%;
+	cursor: pointer;
+	padding-bottom: 5px;
+}
+
+.mailbox:hover
+{
+	background-color: #cfe3d6;
+}
+
+h1,h2,h3,h4,h5,h6
+{
+		color: #4a4849;
+		font-family: fontbold;
+
+}
+
+.mailbox p
+{
+		color: #c1c1c1;
+}
