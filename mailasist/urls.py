@@ -22,6 +22,7 @@ from panel import views as panelviews
 from rest_framework.authtoken import views as authviews
 from django.conf import settings
 from django.conf.urls.static import static
+from django.contrib.auth import views as auth_views_html
 
 router = routers.DefaultRouter()
 router.register(r'users', views.UserViewSet)
@@ -38,6 +39,6 @@ urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
     url(r'^dashboard',include('panel.urls')),
     url(r'^',include('panel.urls')),
-    url(r'^login/$', auth_views.login, name='login'),
-    url(r'^logout/$', auth_views.logout, name='logout'),
+    url(r'^login/$', auth_views_html.login, name='login'),
+    url(r'^logout/$', auth_views_html.logout, name='logout'),
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
