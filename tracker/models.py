@@ -9,7 +9,7 @@ class Mail(models.Model):
 	sender = models.ForeignKey(User)
 	timestamp = models.DateTimeField(null=True)
 	subject = models.TextField()
-	last_read = models.DateTimeField(blank = True)
+	last_read = models.DateTimeField(blank = True , null = True)
 	count = models.IntegerField(default = 0)
 	track_key = models.CharField(max_length = keyLength, unique = True , blank = True)
 	
