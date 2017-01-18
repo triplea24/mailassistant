@@ -9,7 +9,7 @@ class Mail(models.Model):
 	sender = models.ForeignKey(User)
 	timestamp = models.DateTimeField(null=True)
 	subject = models.TextField()
-	last_read = models.DateTimeField(null = True)
+	last_read = models.DateTimeField(blank = True)
 	count = models.IntegerField(default = 0)
 	track_key = models.CharField(max_length = keyLength, unique = True , blank = True)
 	
@@ -27,7 +27,7 @@ class Log(models.Model):
 	timestamp = models.DateTimeField(auto_now_add = True)
 	mail = models.ForeignKey(Mail)
 	url = models.TextField(blank = True)
-	device_ip = models.IPAddressField(default='127.0.0.1')
+	device_ip = models.IPAddressField(blank=True)
 	device_browser = models.TextField(blank = True)
 	device_browser_family = models.TextField(blank = True)
 	device_browser_version_string = models.TextField(blank = True)
