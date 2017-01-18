@@ -4,6 +4,7 @@ from django.shortcuts import redirect
 from django.contrib.auth.decorators import login_required
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from tracker.models import Mail,Log,Receiver
+from django.shortcuts import redirect
 # Create your views here.
 
 @login_required(login_url = '/login/')
@@ -11,7 +12,10 @@ def index(request):
 	# t = loader.get_template('index.html')
     # c = {'foo': 'bar'}
     # return HttpResponse(t.render(c, request), content_type='application/xhtml+xml')
-    return HttpResponse("This is the first page")
+    if(request.user.is_authenticated):
+        return redirect('/dashboard')
+    else:
+        return redirect('/login')
 
 def register(request):
     return HttpResponse("Register")
@@ -35,6 +39,7 @@ def register(request):
 def panel(request):
     # return HttpResponse("Panel")
     user = request.user
+
     mails = Mail.objects.filter(sender = user)
 
     total = Mail.objects.count()
@@ -62,7 +67,12 @@ def show(request,track_key):
     username = request.user.username
 
     mail = Mail.objects.filter(track_key = track_key)
-    
+
+    if len(mail) > 0:
+        mail = mail[0]
+    else:
+        return redirect('/')
+
     tos = Receiver.objects.filter(mail = mail , type_of_receiption = 'T')
     ccs = Receiver.objects.filter(mail = mail , type_of_receiption = 'C')
     bccs = Receiver.objects.filter(mail = mail , type_of_receiption = 'B')
