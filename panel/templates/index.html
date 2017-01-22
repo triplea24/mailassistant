@@ -4,18 +4,23 @@
     <link rel="stylesheet" type="text/css" href="{% static "panel/mycss.css" %}">
 </head>
 <body>
-    <p><h1>Showing emails {{ start }} - {{ end }} of {{ total }}</h1></p>
+    <div class="header">
+        <p><h1>Showing emails {{ start }} - {{ end }} of {{ total }}</h1></p>
+        <div class="compose">Compose</div>
+    </div>
+
+    
     {% load tz %}
     {% if mails|length > 0 %}
     	{% for mail in mails %}
     		<a href="/dashboard/show/{{mail.track_key}}">
-                {% if mail.count > 0%}
-                    <img class="mailstatus" href="{% static "panel/mail/read.png" %}"></img>
-                {% else %}
-                    <img class="mailstatus" href="{% static "panel/mail/not_read.png" %}"></img>
-    			{% endif %}
 
                 <div class="mailbox">
+                    {% if mail.count > 0%}
+                        <img class="mailstatus" href="{% static "panel/mail/read.png" %}"></img>
+                    {% else %}
+                        <img class="mailstatus" href="{% static "panel/mail/not_read.png" %}"></img>
+                    {% endif %}
     				<h3>{{ mail.subject }}</h3>
     				{% if mail.count > 0 %}
     				    <p>{{ mail.last_read }}</p>

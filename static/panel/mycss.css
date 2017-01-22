@@ -55,6 +55,12 @@ a
 	height: 40px;
 }
 
+.compose{
+	width: 100px;
+	height: 20px;
+	background: red;
+}
+
 .mailbox:hover
 {
 	background-color: #fff7d0;
