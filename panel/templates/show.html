@@ -5,11 +5,17 @@
 </head>
 <body>
 	{% load tz %}
+	{% load l10n%}
+
 	<div class="mailbox2">
 		<h1 style="margin-bottom:30px;">{{mail.subject}}</h1>
 		{% if mail.count > 0 %}
 			<p>Read <span>{{ mail.count }}<span> times</p>
-			<p>Last Read at : {{mail.last_read|localtime}}</p>
+			<!--{% localtime on %}-->
+            {% localtime on %}
+			<p>Last Read at : {{mail.last_read }}</p>
+			{% endlocaltime %}
+			<!--{% endlocaltime %}-->
 		{% else %}
 			<p>Not read yet </p>
 		{% endif %}
