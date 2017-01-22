@@ -55,11 +55,16 @@ a
 	height: 40px;
 }
 
-.compose{
+.header compose{
 	width: 100px;
 	height: 20px;
-	background: red;
 	float: right;
+	background-color: #d14836;
+    /*background-image: -webkit-linear-gradient(top,#dd4b39,#d14836);*/
+    /*background-image: linear-gradient(top,#dd4b39,#d14836);*/
+    color: #fff;
+    border: 1px solid transparent;
+    border: 1px solid transparent;
 }
 
 .mailbox:hover
