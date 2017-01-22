@@ -4,12 +4,12 @@
 <link rel="stylesheet" type="text/css" href="{% static "panel/mycss.css" %}">
 </head>
 <body>
-
+	{% load tz %}
 	<div class="mailbox2">
 		<h1 style="margin-bottom:30px;">{{mail.subject}}</h1>
 		{% if mail.count > 0 %}
 			<p>Read <span>{{ mail.count }}<span> times</p>
-			<p>Last Read at : {{mail.last_read}}</p>
+			<p>Last Read at : {{mail.last_read|localtime}}</p>
 		{% else %}
 			<p>Not read yet </p>
 		{% endif %}
