@@ -1,7 +1,7 @@
  <html>
 <head>
-{% load static %}
-<link rel="stylesheet" type="text/css" href="{% static "panel/mycss.css" %}">
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static "panel/mycss.css" %}">
 </head>
 <body>
     <p><h1>Showing emails {{ start }} - {{ end }} of {{ total }}</h1></p>
@@ -21,6 +21,24 @@
     			</div>
     		</a>
     	{% endfor %}
+        {% if mails.has_next % }
+            <button id = "next"></button>
+            <script type="text/javascript">
+                $("#next").click(function(){
+                   $.ajax("/dashboard/?page="+ ( {{ page }} + 1), {
+                      success: function(data) {
+                        alert(data)
+                         // $('#main').html($(data).find('#main *'));
+                         // $('#notification-bar').text('The page has been successfully loaded');
+                      },
+                      error: function() {
+                        alert(error)
+                         // $('#notification-bar').text('An error occurred');
+                      }
+                   }); 
+                });
+            </script>
+        {% endif %}
     {% else %}
         <p>You do not have any emails!</p>
     {% endif %}

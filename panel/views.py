@@ -7,6 +7,7 @@ from tracker.models import Mail,Log,Receiver
 from django.contrib.auth import authenticate, login as auth_login
 from django.contrib.auth.models import User
 from django.shortcuts import redirect
+from . import services
 # Create your views here.
 
 @login_required(login_url = '/register/')
@@ -85,6 +86,7 @@ def panel(request):
     # return HttpResponse("Panel")
     user = request.user
 
+
     mails = Mail.objects.filter(sender = user)
 
     total = Mail.objects.count()
@@ -98,14 +100,18 @@ def panel(request):
     except PageNotAnInteger:
         # If page is not an integer, deliver first page.
         res = paginator.page(1)
+        page = 1
     except EmptyPage:
         res = paginator.page(paginator.num_pages)
+        page = paginator.num_pages
     start = res.start_index()
     end = res.end_index()
-
     # return HttpResponse('page : %s' % str(page))
 
-    return render(request, 'index.html', {'mails': res,'start' : start , 'end' : end , 'total' : total})
+    if request.is_ajax():
+        return HttpResponse(str(res))
+
+    return render(request, 'index.html', {'mails': res,'start' : start , 'end' : end , 'total' : total , 'page' : page})
 
 @login_required(login_url = '/register/')
 def show(request,track_key):
