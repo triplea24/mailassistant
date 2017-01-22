@@ -9,7 +9,7 @@ from django.contrib.auth.models import User
 from django.shortcuts import redirect
 # Create your views here.
 
-@login_required(login_url = '/register/')
+# @login_required(login_url = '/register/')
 def index(request):
 	# t = loader.get_template('index.html')
     # c = {'foo': 'bar'}
