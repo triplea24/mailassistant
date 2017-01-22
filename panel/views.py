@@ -4,12 +4,9 @@ from django.shortcuts import redirect
 from django.contrib.auth.decorators import login_required
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from tracker.models import Mail,Log,Receiver
-<<<<<<< HEAD
 from django.contrib.auth import authenticate, login
 from django.contrib.auth.models import User
-=======
 from django.shortcuts import redirect
->>>>>>> 6de6be97578a702d787aedc1a5dd34f5caa89968
 # Create your views here.
 
 @login_required(login_url = '/register/')
