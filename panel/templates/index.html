@@ -8,7 +8,7 @@
 
     {% if mails|length > 0 %}
     	{% for mail in mails %}
-    		<a href="dashboard/show/{{mail.track_key}}">
+    		<a href="/dashboard/show/{{mail.track_key}}">
                 {% if mail.count > 0%}
                     <img class="mailstatus" href="{% static "panel/mail/read.png" %}"></img>
                 {% else %}
