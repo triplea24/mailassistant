@@ -9,7 +9,13 @@
     {% if mails|length > 0 %}
     	{% for mail in mails %}
     		<a href="dashboard/show/{{mail.track_key}}">
-    			<div class="mailbox">
+                {% if mail.count > 0%}
+                    <img class="mailstatus" href="{% static "panel/mail/read.png" %}"></img>
+                {% else %}
+                    <img class="mailstatus" href="{% static "panel/mail/not_read.png" %}"></img>
+    			{% endif %}
+
+                <div class="mailbox">
     				<h3>{{ mail.subject }}</h3>
     				{% if mail.count > 0 %}
     				    <p>{{ mail.last_read}}</p>
