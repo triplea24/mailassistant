@@ -4,27 +4,53 @@ from django.shortcuts import redirect
 from django.contrib.auth.decorators import login_required
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from tracker.models import Mail,Log,Receiver
-from django.contrib.auth import authenticate, login
+from django.contrib.auth import authenticate, login as auth_login
 from django.contrib.auth.models import User
 from django.shortcuts import redirect
 # Create your views here.
 
-# @login_required(login_url = '/register/')
+@login_required(login_url = '/register/')
 def index(request):
 	# t = loader.get_template('index.html')
     # c = {'foo': 'bar'}
     # return HttpResponse(t.render(c, request), content_type='application/xhtml+xml')
-    if(request.user.is_authenticated):
-        return redirect('/dashboard')
-    else:
-        return redirect('/login')
+    # return HttpResponse("Index")
+    # user = request.user
+    # if user is not None and user.is_authenticated:
+    return redirect('/dashboard')
+    # else:
+        # return redirect('/register/')
 
 def register_view(request):
-    user = request.user
-    if user is not None:
-        return redirect('/')
-    return HttpResponse("Register")
-    return render(request, 'registeration/register.html')
+    # user = request.user
+    # if user is not None:
+        # return redirect('/')
+    # return HttpResponse("Register")
+    return render(request, 'registration/register.html')
+
+# class RegistrationView(CreateView):
+#     form_class = RegistrationForm
+#     model = User
+
+#     def form_valid(self, form):
+#         obj = form.save(commit=False)
+#         obj.set_password(User.objects.make_random_password())
+#         obj.save()
+
+#         # This form only requires the "email" field, so will validate.
+#         reset_form = PasswordResetForm(self.request.POST)
+#         reset_form.is_valid()  # Must trigger validation
+#         # Copied from django/contrib/auth/views.py : password_reset
+#         opts = {
+#             'use_https': self.request.is_secure(),
+#             'email_template_name': 'registration/verification.html',
+#             'subject_template_name': 'registration/verification_subject.txt',
+#             'request': self.request,
+#             # 'html_email_template_name': provide an HTML content template if you desire.
+#         }
+#         # This form sends the email on save()
+#         reset_form.save(**opts)
+#         return redirect('accounts:register-done')
 
 def register(request):
     if request.user is not None:
@@ -47,9 +73,9 @@ def login(request):
     password = request.POST['password']
     user = authenticate(username=username, password=password)
     if user is not None:
-        login(request, user)
+        auth_login(request, user)
         # Redirect to a success page.
-        return redirect('/dashboard/')
+        return redirect('/dashboard')
     else:
         return redirect('/register/')
         # Return an 'invalid login' error message.
