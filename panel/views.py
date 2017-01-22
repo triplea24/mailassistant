@@ -23,6 +23,7 @@ def register_view(request):
     user = request.user
     if user is not None:
         return redirect('/')
+    return HttpResponse("Register")
     return render(request, 'registeration/register.html')
 
 def register(request):
