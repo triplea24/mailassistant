@@ -7,34 +7,34 @@
 
 	<div class="mailbox2">
 		<h1 style="margin-bottom:30px;">{{mail.subject}}</h1>
-		{% if mail.last_read }
-			<p>{{mail.last_read}}</p>
-			<p>Read <span>{{mail.count}}<span> times</p>
+		{% if mail.count > 0 %}
+			<p>Read <span>{{ mail.count }}<span> times</p>
+			<p>Last Read at : {{mail.last_read}}</p>
 		{% else %}
 			<p>Not read yet </p>
 		{% endif %}
-		<p>to : 
-			{{% for to in tos %}}
+		<p>to :
+			{% for to in tos %}
 				<span>{{to.email}}</span><span>,</span>
-			{{% endfor %}} 
+			{% endfor %}
 
 		</p>
-		<p>cc : 
-			{{% for cc in ccs %}}
+		<p>cc :
+			{% for cc in ccs %}
 				<span>{{cc.email}}</span><span>,</span>
-			{{% endfor %}} 
-			
+			{% endfor %}
+
 		</p>
-		<p>bcc : 
-			{{% for bcc in bccs %}}
+		<p>bcc :
+			{% for bcc in bccs %}
 				<span>{{bcc.email}}</span><span>,</span>
-			{{% endfor %}} 
-			
+			{% endfor %}
+
 		</p>
 	</div>
 
 	{% if mail.count > 0 %}
-		<h3 class="last">LATEST EMAIL OPENS</h3>	
+		<h3 class="last">LATEST EMAIL OPENS</h3>
 		{% for log in logs %}
 			<div class="insidemail">
 				<div class="shape"></div>
@@ -43,7 +43,7 @@
 			</div>
 		{% endfor %}
 	{% else %}
-		<p>Dear {{ username }}, Sorry! No one has read your email yet. Be strong, Be patient! :(</p>
+		<p>Dear <strong>{{ username }}</strong>, Sorry! No one has read your email yet. Be strong, Be patient! :(</p>
 	{% endif %}
 
 </body>
