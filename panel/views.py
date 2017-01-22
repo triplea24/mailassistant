@@ -7,7 +7,6 @@ from tracker.models import Mail,Log,Receiver
 from django.contrib.auth import authenticate, login as auth_login
 from django.contrib.auth.models import User
 from django.shortcuts import redirect
-from . import services
 # Create your views here.
 
 @login_required(login_url = '/register/')
@@ -108,8 +107,8 @@ def panel(request):
     end = res.end_index()
     # return HttpResponse('page : %s' % str(page))
 
-    if request.is_ajax():
-        return HttpResponse(str(res))
+    # if request.is_ajax():
+    #     return HttpResponse(str(res))
 
     return render(request, 'index.html', {'mails': res,'start' : start , 'end' : end , 'total' : total , 'page' : page})
 

@@ -42,6 +42,12 @@
 				<p>{{ log.timestamp }}</p>
 			</div>
 		{% endfor %}
+		{% if logs.has_previous %}
+            <a href="?page={{ logs.previous_page_number }}">previous</a>
+    	{% endif %}
+    	{% if logs.has_next %}
+            <a href="?page={{ logs.next_page_number }}">next</a>
+    	{% endif %}
 	{% else %}
 		<p>Dear <strong>{{ username }}</strong>, Sorry! No one has read your email yet. Be strong, Be patient! :(</p>
 	{% endif %}
