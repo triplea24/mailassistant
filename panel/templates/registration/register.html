@@ -1,0 +1,37 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static "panel/register/register.css" %}">
+
+  </head>
+  <body>
+    <div class="login-page">
+      <div class="form">
+        
+        <form class="register-form" method="POST" action="/register">
+          <input type="text" name="firstname" placeholder="First name"/>
+          <input type="text" name="lastname" placeholder="Last name"/>
+          <input type="text" name="username" placeholder="Username"/>
+          <input type="text" name="email" placeholder="Email address"/>
+          <input type="password" name="password" placeholder="Password"/>
+          <button>Create</button>
+          <p class="message">Already registered? <a href="#">Sign In</a></p>
+        </form>
+
+        <form class="login-form" method="POST" action="/login">
+          <input type="text" name="username" placeholder="Username"/>
+          <input type="password" name="password" placeholder="Password"/>
+          <!-- {% csrf_token %} -->
+          <!-- {{ form.as_p }} -->
+          <button>Login</button>
+          <p class="message">Not registered? <a href="#">Create an account</a></p>
+        </form>
+
+      </div>
+    </div>
+
+    <script type="text/javascript" href= "{% static "panel/register/register.js" %}"></script>
+
+  </body>
+</html>

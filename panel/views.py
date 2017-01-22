@@ -4,34 +4,52 @@ from django.shortcuts import redirect
 from django.contrib.auth.decorators import login_required
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from tracker.models import Mail,Log,Receiver
+from django.contrib.auth import authenticate, login
+from django.contrib.auth.models import User
 # Create your views here.
 
-@login_required(login_url = '/login/')
+@login_required(login_url = '/register/')
 def index(request):
 	# t = loader.get_template('index.html')
     # c = {'foo': 'bar'}
     # return HttpResponse(t.render(c, request), content_type='application/xhtml+xml')
     return HttpResponse("This is the first page")
 
-def register(request):
-    return HttpResponse("Register")
-# 	if request.method == 'POST':
-#         form = RegistrationForm(request.POST)
-#         if form.is_valid():
-#             user = User.objects.create_user(
-#             username=form.cleaned_data['username'],
-#             password=form.cleaned_data['password1'],
-#             email=form.cleaned_data['email']
-#             )
-#             return HttpResponseRedirect('/register/success/')
-#     else:
-#         form = RegistrationForm()
-# 	    variables = RequestContext(request, {
-# 	    'form': form
-# 	    })
-#     return render_to_response('registration/register.html',variables,)
+def register_view(request):
+    user = request.user
+    if user is not None:
+        return redirect('/')
+    return render(request, 'registeration/register.html')
 
-@login_required(login_url = '/login/')
+def register(request):
+    if request.user is not None:
+        return redirect('/')
+
+    firstname = request.POST['firstname']
+    lastname = request.POST['lastname']
+    username = request.POST['username']
+    email = request.POST['email']
+    password = request.POST['password']
+
+    user = User.objects.create_user(username = username,password = password,first_name = firstname , last_name = lastname,email = email)
+    user.save()
+
+    # handle exception
+    return redirect('/dashboard')
+
+def login(request):
+    username = request.POST['username']
+    password = request.POST['password']
+    user = authenticate(username=username, password=password)
+    if user is not None:
+        login(request, user)
+        # Redirect to a success page.
+        return redirect('/dashboard/')
+    else:
+        return redirect('/register/')
+        # Return an 'invalid login' error message.
+
+@login_required(login_url = '/register/')
 def panel(request):
     # return HttpResponse("Panel")
     user = request.user
@@ -57,7 +75,7 @@ def panel(request):
 
     return render(request, 'index.html', {'mails': res,'start' : start , 'end' : end , 'total' : total})
 
-@login_required(login_url = '/login/')
+@login_required(login_url = '/register/')
 def show(request,track_key):
     username = request.user.username
 
