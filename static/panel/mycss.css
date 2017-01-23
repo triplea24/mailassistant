@@ -16,7 +16,7 @@ ul {
     padding: 0;
     overflow: hidden;
     background-color: #333;
-    margin-top: -15px;
+    margin-top: -20px;
 }
 
 li {
@@ -126,7 +126,7 @@ h3.last{
 .next_previous{
 	display: inline-block;
 	border-radius: 4px;
-	background-color: #1995D1;
+	background-color: #E78650;
 	border: none;
 	color: #000000;
 	text-align: center;
@@ -148,6 +148,7 @@ h3.last{
 	display: inline-block;
 	position: relative;
 	transition: 0.5s;
+	color: white;
 }
 
 .next_previous span:after {
