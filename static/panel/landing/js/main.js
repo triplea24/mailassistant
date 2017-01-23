@@ -87,7 +87,7 @@ $(document).ready(function(){
             $(form).ajaxSubmit({
                 type:"POST",
                 data: $(form).serialize(),
-                url:"mail.php",
+                url:"/contact/",
                 success: function() {
                     $('#contact-form :input').attr('disabled', 'disabled');
                     $('#contact-form').fadeTo( "slow", 0.15, function() {
