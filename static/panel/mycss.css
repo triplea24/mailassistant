@@ -45,9 +45,9 @@ li {
 
 li a {
     display: block;
-    color: white;
+    color: #fffdf7;
     text-align: center;
-    padding: 14px 16px;
+    padding: 5px 5px;
     text-decoration: none;
 }
 li a:hover {
