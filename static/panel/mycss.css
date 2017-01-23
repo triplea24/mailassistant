@@ -45,14 +45,17 @@ a
 	line-height: 60%;
 	cursor: pointer;
 	padding-bottom: 5px;
+	overflow: hidden;
+	float: left;
 }
 .mailstatus{
 	display: block;
 	border : none;
-	padding-left: 20px;
-	padding-right: 20px;
-	width: 40px;
-	height: 40px;
+	float: left;
+	padding-left: 15px;
+	padding-right: 15px;
+	width: 45px;
+	height: 45px;
 }
 
 .mailbox:hover
