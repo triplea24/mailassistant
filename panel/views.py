@@ -9,6 +9,7 @@ from django.contrib.auth.models import User
 from django.shortcuts import redirect
 from django.shortcuts import render_to_response
 from django.template.context_processors import csrf
+from panel.models import Messsage
 # Create your views here.
 
 def index(request):
@@ -35,8 +36,6 @@ def register(request):
     username = request.POST['username']
     email = request.POST['email']
     password = request.POST['password']
-    # c = {}
-    # c.update(csrf(request))
 
     if User.objects.filter(username = username).exists():
         return render_to_response(request, 'registration/register.html',{'message' : "User already exists"})
@@ -125,3 +124,9 @@ def show(request,track_key):
     except EmptyPage:
         logs = paginator.page(paginator.num_pages)
     return render(request, 'show.html', {'mail':mail,'tos' : tos, 'ccs' : ccs, 'bccs' : bccs , 'logs': logs , 'username' : username})
+def contact(request):
+    name = request.POST['name']
+    email = request.POST['email']
+    message = request.POST['message']
+    message = Messsage.objects.create_message(name = name , email = email , message = message)
+    return HttpResponse('')
