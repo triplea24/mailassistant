@@ -13,7 +13,7 @@
 	{% load l10n%}
 
 	<div class="mailbox2">
-		<h1 style="margin-bottom:30px;">{{mail.subject}}</h1>
+		<h1 style="margin-bottom:15px;">{{mail.subject}}</h1>
 		{% if mail.count > 0 %}
 			<p>Read <span>{{ mail.count }}<span> times</p>
 			<!--{% localtime on %}-->
@@ -48,7 +48,9 @@
 		<p class="last">LATEST EMAIL OPENS</p>
 		{% for log in logs %}
 			<div class="insidemail">
-				<div class="shape"></div>
+				<div class="shape">
+					<img src="{% static "/panel/email.png" %}">
+				</div>
 				<p>One of the recepients read this email</p>
 				<p>{{ log.timestamp }}</p>
 			</div>
