@@ -74,6 +74,7 @@ def register(request):
     else:
         return redirect('/register',message = "An error occured")
 
+    return HttpResponse(user)
     # handle exception
     return redirect('/dashboard')
 
