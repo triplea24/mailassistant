@@ -103,6 +103,7 @@ p.last{
 }
 
 .mailbox2 h1{
+	font-weight: bold;
 	font-size: 22px;
 	color: #1c270f;
 	margin-left: 20px;
