@@ -32,8 +32,30 @@ a
 		text-decoration: none !important;
 }
 
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+}
+li {
+    float: right;
+}
 
-
+li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+li a:hover {
+    background-color: #111;
+}
+.active {
+    background-color: #4CAF50;
+}
 
 .mailbox
 {
@@ -126,55 +148,4 @@ h3.last
 	background-image: url('/mail-512.png');
 	background-size: cover;
 
-}
-
-.navbar-default .navbar-nav > li > a:hover,
-.navbar-default .navbar-nav > li > a:focus,
-.navbar-default.animated .navbar-nav > li > a:hover {
-    color: #009ee5;
-}
-.navbar-default {
-    background-color: transparent;
-    -webkit-transition: all 0.3s ease-in-out 0s;
-       -moz-transition: all 0.3s ease-in-out 0s;
-        -ms-transition: all 0.3s ease-in-out 0s;
-         -o-transition: all 0.3s ease-in-out 0s;
-            transition: all 0.3s ease-in-out 0s;
-}
-
-.navbar-default.animated {
-    background-color: #fff;
-    box-shadow: 0 4px 4px -2px rgba(0, 0, 0, 0.15);
-    padding:10px;
-}
-
-
-
-
-.navbar-default {
-    background-color: transparent;
-    border: 0;
-    -webkit-transition: all 0.3s ease-in-out 0s;
-    -moz-transition: all 0.3s ease-in-out 0s;
-    -o-transition: all 0.3s ease-in-out 0s;
-    transition: all 0.3s ease-in-out 0s;
-}
-.navbar-default .navbar-brand {
-    color: #777;
-    padding: 5px 0;
-}
-.navbar-default .navbar-nav > li > a,
-.navbar-default .navbar-nav > li > a:hover {
-    color: #fff;
-    position: relative;
-}
-.navbar-default.animated .navbar-nav > li > a,
-.navbar-default.animated .navbar-nav > li > a:hover {
-    color: #000;
-}
-.navbar-default .navbar-nav > li.current > a {
-    color: #fff;
-}
-.navbar-default.animated .navbar-nav > li.current > a {
-    color: #82c25a;
 }
