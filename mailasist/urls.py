@@ -38,5 +38,5 @@ urlpatterns = [
     url(r'^track/', include('tracker.urls')),
     url(r'^admin/', include(admin.site.urls)),
     url(r'^',include('panel.urls')),
-    url(r'^logout/$', auth_views_html.logout,{'next_page': '/'}, name='logout'),
+    url(r'^logout/$', auth_views_html.logout,{'next_page': '/register/'}, name='logout'),
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
