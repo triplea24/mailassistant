@@ -7,6 +7,8 @@ from tracker.models import Mail,Log,Receiver
 from django.contrib.auth import authenticate, login as auth_login
 from django.contrib.auth.models import User
 from django.shortcuts import redirect
+from django.shortcuts import render_to_response
+from django.template.context_processors import csrf
 # Create your views here.
 
 def index(request):
@@ -33,22 +35,23 @@ def register(request):
     username = request.POST['username']
     email = request.POST['email']
     password = request.POST['password']
+    # c = {}
+    # c.update(csrf(request))
 
     if User.objects.filter(username = username).exists():
-        return render(request, 'registration/register.html',{'message' : "User already exists"})
+        return render_to_response(request, 'registration/register.html',{'message' : "User already exists"})
     if User.objects.filter(email = email).exists():
         return render(request, 'registration/register.html',{'message' : "Email is already taken"})
 
     user = User.objects.create_user(username = username,password = password,first_name = firstname , last_name = lastname,email = email)
 
+    user = authenticate(username=username, password=password)
+    
     if user is not None:
         auth_login(request, user)
     else:
         return render(request, 'registration/register.html',{'message' : "An error occured"})
-        # return redirect('/register',message = "An error occured")
 
-    # return HttpResponse(user)
-    # handle exception
     return redirect('/dashboard')
 
 def login(request):
