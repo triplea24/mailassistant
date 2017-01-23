@@ -62,8 +62,17 @@ def register(request):
     email = request.POST['email']
     password = request.POST['password']
 
+    if User.objects.filter(username = username).exists():
+        return redirect('/register/',message = "User already exists")
+    if User.objects.filter(email = email).exists():
+        return redirect('/register/' , message = "Email is already taken")
+
     user = User.objects.create_user(username = username,password = password,first_name = firstname , last_name = lastname,email = email)
-    user.save()
+    
+    if user is not None:
+        auth_login(request, user)
+    else:
+        return redirect('/register',message = "An error occured")
 
     # handle exception
     return redirect('/dashboard')
