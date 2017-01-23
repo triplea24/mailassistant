@@ -1,11 +1,24 @@
- <html>
+<!DOCTYPE html>
 <head>
     {% load static %}
     <link rel="stylesheet" type="text/css" href="{% static "panel/mycss.css" %}">
 </head>
 <body>
+
+    <div class="navbar-default navbar-fixed-top" id="navigation">
+            <div class="container">
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <nav class="collapse navbar-collapse" id="navbar">
+                    <ul class="nav navbar-nav navbar-right" id="top-nav">
+                        <li><a href="/dashboard/compose/">Compose</a></li>
+                        <li><a href="/dashboard/Profile/">Profile</a></li>
+                        <li><a href="/Logout">Logout</a></li>
+                    </ul>
+                </nav><!-- /.navbar-collapse -->
+            </div><!-- /.container-fluid -->
+        </div>
+
     <div class="header">
-        <div class="compose">Compose</div>
         <h1>Showing emails {{ start }} - {{ end }} of {{ total }}</h1>
         
     </div>
@@ -22,6 +35,8 @@
                     {% else %}
                         <img class="mailstatus" href="{% static "panel/mail/not_read.png" %}"></img>
                     {% endif %}
+                </div>
+                <div>
     				<h3>{{ mail.subject }}</h3>
     				{% if mail.count > 0 %}
     				    <p>{{ mail.last_read }}</p>
