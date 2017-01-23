@@ -141,7 +141,7 @@ h3.last{
 	cursor: pointer;
 	margin: 5px;
 	float: right;
-	line-height: 40px;
+	line-height: 5%;
 
 }
 .next_previous:hover span {
