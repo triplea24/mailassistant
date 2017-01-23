@@ -22,16 +22,16 @@
 
     
     {% load tz %}
-    <div class="entry">
+    <div class="mailbox">
     {% if mails|length > 0 %}
     	{% for mail in mails %}
     		<a href="/dashboard/show/{{mail.track_key}}">
 
-                <div class="mailbox">
+                <div class="mailstatus">
                     {% if mail.count > 0%}
-                        <img class="mailstatus" src="{% static "panel/mail/read.png" %}">
+                        <img src="{% static "panel/mail/read.png" %}">
                     {% else %}
-                        <img class="mailstatus" src="{% static "panel/mail/not_read.png" %}">
+                        <img src="{% static "panel/mail/not_read.png" %}">
                     {% endif %}
                 </div>
                 <div>
