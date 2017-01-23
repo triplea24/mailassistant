@@ -45,7 +45,6 @@ li a:hover {
 .mailbox{
 	display: block;
 	border : none;
-	/*border-top : 1px solid #ccc;*/
 	text-align: left;
 	cursor: pointer;
 	overflow: hidden;
@@ -55,12 +54,12 @@ li a:hover {
 }
 
 .mailstatus{
-	display: block;
+	display: inline-block;
 	border : none;
 	float: left;
-	margin: 10px;
 	padding-left: 10px;
 	padding-right: 10px;
+	height: 100%;
 }
 
 .mailbox:hover{
@@ -70,17 +69,20 @@ li a:hover {
 h1,h2,h3,h4,h5,h6{
 		color: #4a4849;
 		font-family: 'Lato', sans-serif;
-		font: 24px 'Lato', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+		font: 23px 'Lato', 'Helvetica Neue', Helvetica, Arial, sans-serif;
 		font-weight: bold;
 }
 
 .mailbox p{
 	color: #4a4849;
-	margin-top: -10px;
+	margin-top: -15px;
 }
 
 .mailbox .details{
-	margin-left: 120px;
+    display: inline-block;
+	margin-left: auto;
+	margin-top: auto;
+	height: 100%;
 }
 .mailbox2{
 	display: block;
@@ -131,9 +133,7 @@ p.last{
 	height: 40px;
 	border-radius: 50px;
 	background-color: #41aba0;
-	/*background-image: url('/mail-512.png');*/
 	background-size: cover;
-
 }
 
 .next_previous{
@@ -152,8 +152,8 @@ p.last{
 	margin: 5px;
 	float: right;
 	line-height: 5%;
-
 }
+
 .next_previous:hover span {
 	padding-right: 25px;
 }
