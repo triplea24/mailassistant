@@ -130,12 +130,13 @@ h3.last{
 	border: none;
 	color: #FFFFFF;
 	text-align: center;
-	font-size: 28px;
+	font-size: 15px;
 	padding: 20px;
-	width: 200px;
+	width: 35px;
 	transition: all 0.5s;
 	cursor: pointer;
 	margin: 5px;
+	float: right;
 }
 .next_previous:hover span {
 	padding-right: 25px;
@@ -149,7 +150,7 @@ h3.last{
 }
 
 .next_previous span:after {
-	 content: '\00bb';
+	content: '\00bb';
 	position: absolute;
 	opacity: 0;
 	top: 0;
