@@ -34,7 +34,7 @@
                         <img src="{% static "panel/mail/not_read.png" %}" width="80px" height="80px">
                     {% endif %}
                 </div>
-                <div>
+                <div class="details">
     				<h3>{{ mail.subject }}</h3>
     				{% if mail.count > 0 %}
     				    <p>{{ mail.last_read }}</p>
