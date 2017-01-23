@@ -1,7 +1,6 @@
-@font-face {
-  font-family: 'fontbold';
-  src:
-       url('ubuntu/Ubuntu-B.ttf')  format('truetype') ;
+/*@font-face {
+  font-family:  'Lato', sans-serif;
+      font:14px/22px 'Lato', 'Helvetica Neue', Helvetica, Arial, sans-serif;
 
 }
 
@@ -18,13 +17,14 @@
        url('ubuntu/Ubuntu-L.ttf')  format('truetype') ;
 
 }
-
+*/
 
 body
 {
 	padding: 0px;
 	padding-top: 20px;
-	font-family: fontreg;
+	font-family: 'Lato', sans-serif;
+	font:19px 'Lato', 'Helvetica Neue', Helvetica, Arial, sans-serif;
 	background-color: #fffdf7;
 }
 a
@@ -88,7 +88,9 @@ li a:hover {
 h1,h2,h3,h4,h5,h6
 {
 		color: #4a4849;
-		font-family: fontbold;
+		font-family: 'Lato', sans-serif;
+		font: 22px 'Lato', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+	
 
 }
 
@@ -113,7 +115,8 @@ h1,h2,h3,h4,h5,h6
 
 h3.last
 {
-	font-family: fontlight;
+	font-family: 'Lato', sans-serif;
+	font:14px 'Lato', 'Helvetica Neue', Helvetica, Arial, sans-serif;
 	color: #c8c8c8;
 	padding-left: 20px;
 }
@@ -146,7 +149,7 @@ h3.last
 	height: 40px;
 	border-radius: 50px;
 	background-color: #fff7d0;
-	background-image: url('/mail-512.png');
+	/*background-image: url('/mail-512.png');*/
 	background-size: cover;
 
 }
