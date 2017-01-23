@@ -74,7 +74,8 @@ h1,h2,h3,h4,h5,h6{
 }
 
 .mailbox p{
-		color: #c1c1c1;
+	color: #c1c1c1;
+	margin-top: -8px;
 }
 
 .mailbox2{
@@ -98,7 +99,6 @@ p.last{
 .mailbox2 p{
 	color: #1c270f;
 	margin-left: 20px;
-	margin-top: -15px;
 }
 
 .mailbox2 h1{
