@@ -50,6 +50,7 @@ li a:hover {
 	cursor: pointer;
 	overflow: hidden;
 	float: left;
+	width: 100%;
 }
 
 .mailstatus{
