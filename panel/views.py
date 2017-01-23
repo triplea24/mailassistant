@@ -40,14 +40,14 @@ def register(request):
         return render(request, 'registration/register.html',{'message' : "Email is already taken"})
 
     user = User.objects.create_user(username = username,password = password,first_name = firstname , last_name = lastname,email = email)
-    
+
     if user is not None:
         auth_login(request, user)
     else:
         return render(request, 'registration/register.html',{'message' : "An error occured"})
         # return redirect('/register',message = "An error occured")
 
-    return HttpResponse(user)
+    # return HttpResponse(user)
     # handle exception
     return redirect('/dashboard')
 
