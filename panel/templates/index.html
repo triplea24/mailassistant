@@ -2,9 +2,14 @@
 <head>
     {% load static %}
     <link rel="stylesheet" type="text/css" href="{% static "panel/mycss.css" %}">
+    <!-- Fonts -->
+    <!-- Lato -->
+    <link href='http://fonts.googleapis.com/css?family=Lato:400,300,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+
 </head>
 <body>
-        <ul class="nav navbar-nav navbar-right" id="top-nav">
+        <ul class="navigation">
             <li><a href="/logout">Logout</a></li>
             <li><a href="/dashboard/compose/">Compose</a></li>
             <li><a href="/dashboard/profile/">Profile</a></li>
@@ -49,11 +54,7 @@
     {% else %}
         <p>You don't have any email yet</p>
     {% endif %}
-    <script src="{% static "panel/landing/js/jquery.validate.min.js" %}"></script>
-    <script src="{% static "panel/landing/js/jquery.form.js" %}"></script>
-    <script src="{% static "panel/landing/js/jquery.nav.js" %}"></script>
-    <script src="{% static "panel/landing/js/jquery.sticky.js" %}"></script>
-
+    
 </body>
 </html>
 
