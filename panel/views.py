@@ -53,7 +53,7 @@ def register_view(request):
 #         return redirect('accounts:register-done')
 
 def register(request):
-    if request.user is not None:
+    if request.user.is_authenticated():
         return redirect('/')
 
     firstname = request.POST['firstname']
