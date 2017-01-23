@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html class="no-js">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Notes </title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+        <link rel="shortcut icon" type="image/png" href="{% static "panel/landing/images/favicon.ico" %}">
+        <!-- Fonts -->
+        <!-- Lato -->
+        <link href='http://fonts.googleapis.com/css?family=Lato:400,300,700' rel='stylesheet' type='text/css'>
+        <link rel="stylesheet" href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+
+        <!-- CSS -->
+        <link rel="stylesheet" href="{% static "panel/landing/css/bootstrap.min.css" %}">
+        <link rel="stylesheet" href="{% static "panel/landing/css/font-awesome.min.css" %}">
+        <link rel="stylesheet" href="{% static "panel/landing/css/owl.carousel.css" %}">
+        <link rel="stylesheet" href="{% static "panel/landing/css/animate.css" %}">
+        <link rel="stylesheet" href="{% static "panel/landing/css/main.css" %}">
+        <!-- Responsive Stylesheet -->
+        <link rel="stylesheet" href="{% static "panel/landing/css/responsive.css" %}">
+    </head>
+
+    <body id="body">
+
+    	<div id="preloader">
+    		<div class="book">
+    		  <div class="book__page"></div>
+    		  <div class="book__page"></div>
+    		  <div class="book__page"></div>
+    		</div>
+    	</div>
+
+	    <!-- 
+	    Header start
+	    ==================== -->
+	    <div class="navbar-default navbar-fixed-top" id="navigation">
+	        <div class="container">
+	            <!-- Brand and toggle get grouped for better mobile display -->
+	            <div class="navbar-header">
+	                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+	                    <span class="sr-only">Toggle navigation</span>
+	                    <span class="icon-bar"></span>
+	                    <span class="icon-bar"></span>
+	                    <span class="icon-bar"></span>
+	                </button>
+	                <a class="navbar-brand" href="#">
+                        <img class="logo-1" src="{% static "panel/landing/images/logo.png" %}" alt="LOGO">
+	                    <img class="logo-2" src="{% static "panel/landing/images/logo.png" %}" alt="LOGO">
+	                </a>
+	            </div>
+
+	            <!-- Collect the nav links, forms, and other content for toggling -->
+	            <nav class="collapse navbar-collapse" id="navbar">
+	                <ul class="nav navbar-nav navbar-right" id="top-nav">
+	                    <li class="current"><a href="#body">Home</a></li>
+	                    <li><a href="#service">Services</a></li>
+                        <li><a href="#team">Team</a></li>
+	                    <li><a href="#contact">Contact</a></li>
+	                </ul>
+	            </nav><!-- /.navbar-collapse -->
+	        </div><!-- /.container-fluid -->
+	    </div>
+
+	    <section id="hero-area">
+	        <div class="container">
+	            <div class="row">
+	                <div class="col-md-6">
+	                    <div class="block">
+	                        <h1 class="wow fadeInDown">Email Assistant</h1>
+	                        <p class="wow fadeInDown" data-wow-delay="0.3s">Google has announced that gmail has more than 1 billion monthly active users.</p>
+                            <p class="wow fadeInDown" data-wow-delay="0.3s">As the email protocol and systems are mostly aged, they can not satisfy user needs, Although it has the potential for some awesome functionalities</p>
+                            <p class="wow fadeInDown" data-wow-delay="0.3s">Our passion is to enable these kind of functionalities.</p>
+	                        <div class="wow fadeInDown" data-wow-delay="0.3s">
+	                        	<a class="btn btn-default btn-home" href="#about" role="button">Get Started</a>
+	                        </div>
+	                    </div>
+	                </div>
+	                <div class="col-md-6 wow zoomIn">
+	                    <div class="block">
+	                        <div class="counter text-center">
+	                            <ul id="countdown_dashboard">
+	                                <li>
+	                                    <div class="dash days_dash">
+	                                        <div class="digit">0</div>
+	                                        <div class="digit">0</div>
+	                                        <div class="digit">0</div>
+	                                        <span class="dash_title">Days</span>
+	                                    </div>
+	                                </li>
+	                                <li>
+	                                    <div class="dash hours_dash">
+	                                        <div class="digit">0</div>
+	                                        <div class="digit">0</div>
+	                                        <span class="dash_title">Hours</span>
+	                                    </div>
+	                                </li>
+	                                <li>
+	                                    <div class="dash minutes_dash">
+	                                        <div class="digit">0</div>
+	                                        <div class="digit">0</div>
+	                                        <span class="dash_title">Minutes</span>
+	                                    </div>
+	                                </li>
+	                                <li>
+	                                    <div class="dash seconds_dash">
+	                                        <div class="digit">0</div>
+	                                        <div class="digit">0</div>
+	                                        <span class="dash_title">Seconds</span>
+	                                    </div>
+	                                </li>
+	                            </ul>
+	                        </div>
+	                    </div>
+	                </div>
+	            </div><!-- .row close -->
+	        </div><!-- .container close -->
+	    </section><!-- header close -->
+
+
+
+        <!-- 
+        Service start
+        ==================== -->
+        <section id="service" class="section">
+            <div class="container">
+                <div class="row">
+                    <div class="heading wow fadeInUp">
+                        <h2>Our service</h2>
+                        <p>We are about to provide a system to let our users vast the functionalities of their mailboxes by adding features such as:</p>
+                    </div>
+                    <div class="col-sm-6 col-md-6 wow fadeInLeft">
+                        <div class="service">
+                            <div class="icon-box">
+                            	<span class="icon">
+                                    <i class="ion-checkmark-round"></i>   
+                                </span>
+                            </div>
+                            <div class="caption">
+                                <h3>Tracking Emails</h3>
+                                <p>Notifying the user if the recipient has opened email or not </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-md-6 wow fadeInLeft" data-wow-delay="0.3s">
+                        <div class="service">
+                            <div class="icon-box">
+                            	<span class="icon">
+                                    <i class="ion-clock"></i>   
+                                </span>
+                            </div>
+                            <div class="caption">
+                            	<h3>Scheduling Emails</h3>
+                                <p>Enabling the option to let user send email while he/she is not online</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div><!-- .container close -->
+        </section><!-- #service close -->
+
+        <!-- 
+        team start
+        ==================== -->
+        <section id="team" class="section">
+            <div class="container">
+                <div class="row">
+                    <div class="heading wow fadeInUp">
+                        <h2>Our Great Team :)</h2>
+                    </div>
+                    <div class="col-sm-6 col-md-4 wow fadeInLeft">
+                        <div class="service">
+                            <span class="team_member">
+                                <img src="{% static "panel/landing/images/team/hossein.jpg" alt="" class="img-responsive">
+                            </span>
+                            <div class="caption">
+                                <h3>Hossein Rahmati</h3>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-md-4 wow fadeInLeft" data-wow-delay="0.3s">
+                        <div class="service">
+                            <span class="team_member">
+                                <img src="{% static "panel/landing/images/team/majid.jpg" alt="" class="img-responsive">
+                            </span>
+                            <div class="caption">
+                                <h3>Majid Abolghasemi</h3>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-md-4 wow fadeInLeft" data-wow-delay="0.3s">
+                        <div class="service">
+                            <span class="team_member">
+                                <img src="{% static "panel/landing/images/team/amir.jpg" %}" alt="" class="img-responsive">
+                            </span>
+                            <div class="caption">
+                                <h3>Amir Ahangari</h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div><!-- .container close -->
+        </section><!-- #team close -->
+
+
+        
+        <!-- 
+        Contact start
+        ==================== -->
+        <section id="contact" class="section">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xs-12 col-sm-12 col-md-12">
+                        <div class="block">
+                            <div class="heading wow fadeInUp">
+                                <h2>Have a question?</h2>
+                                <p>We're friendly and available to chat. Reach out to us anytime and we'll happily answer your questions.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-sm-12 col-md-5 wow fadeInUp">
+						<div class="block text-left">
+							<div class="sub-heading">
+								<h4>Contact Address</h4>
+							</div>
+							<address class="address">
+                                <hr>
+								<p>Khaje Nasir University of Technology,<br>Seyed Khandan, Shariati,<br> Tehran, Iran</p>
+                                <hr>
+                                <p><strong>Email:</strong>&nbsp;hossein.rahmati95@gmail.com<br>
+                                <strong>Phone:</strong>&nbsp;+989377462593</p>
+								
+                                
+							</address>
+						</div>
+                    </div>
+
+                    <div class="col-xs-12 col-sm-12 col-md-5 col-md-offset-1 wow fadeInUp" data-wow-delay="0.3s">
+                    	<div class="form-group">
+                    	    <form action="#" method="POST" id="contact-form">
+                    	        <div class="input-field">
+                    	            <input type="text" class="form-control" placeholder="Your Name" name="name">
+                    	        </div>
+                    	        <div class="input-field">
+                    	            <input type="email" class="form-control" placeholder="Email Address" name="email">
+                    	        </div>
+                    	        <div class="input-field">
+                    	            <textarea class="form-control" placeholder="Your Message" rows="3" name="message"></textarea>
+                    	        </div>
+                    	        <button class="btn btn-send" type="submit">Send me</button>
+                    	    </form>
+
+                    	    <div id="success">
+                    	        <p>Your Message was sent successfully</p>
+                    	    </div>
+                    	    <div id="error">
+                    	        <p>Your Message was not sent successfully</p>
+                    	    </div>
+                    	</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section clas="wow fadeInUp">
+        	<div class="map-wrapper">
+        	</div>
+        </section>
+
+
+        <!-- Js -->
+        <script src="{% static "panel/landing/js/vendor/modernizr-2.6.2.min.js" %}"></script>
+        <script src="{% static "panel/landing/js/vendor/jquery-1.10.2.min.js" %}"></script>
+        <script src="https://maps.googleapis.com/maps/api/js?sensor=false"></script>
+        <script src="{% static "panel/landing/js/jquery.lwtCountdown-1.0.js" %}"></script>
+        <script src="{% static "panel/landing/js/bootstrap.min.js" %}"></script>
+        <script src="{% static "panel/landing/js/owl.carousel.min.js" %}"></script>
+        <script src="{% static "panel/landing/js/jquery.validate.min.js" %}"></script>
+        <script src="{% static "panel/landing/js/jquery.form.js" %}"></script>
+        <script src="{% static "panel/landing/js/jquery.nav.js" %}"></script>
+        <script src="{% static "panel/landing/js/jquery.sticky.js" %}"></script>
+        <script src="{% static "panel/landing/js/plugins.js %}"></script>
+        <script src="{% static "panel/landing/js/wow.min.js" %}"></script>
+        <script src="{% static "panel/landing/js/main.js" %}"></script>
+        
+    </body>
+</html>
