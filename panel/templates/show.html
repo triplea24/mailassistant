@@ -53,16 +53,17 @@
 				<p>{{ log.timestamp }}</p>
 			</div>
 		{% endfor %}
-		{% if logs.has_previous %}
-			<button class="next_previous" style="vertical-align:middle">
-				<a href="?page={{ logs.previous_page_number }}"><span>Previous</span></a>
-			</button>
-            
-    	{% endif %}
+		
     	{% if logs.has_next %}
     		<button class=next_previous style="vertical-align:middle">
     			<a href="?page={{ logs.next_page_number }}"><span>Next</span></a>
     		</button>
+    	{% endif %}
+    	{% if logs.has_previous %}
+			<button class="next_previous" style="vertical-align:middle">
+				<a href="?page={{ logs.previous_page_number }}"><span>Previous</span></a>
+			</button>
+            
     	{% endif %}
 	{% else %}
 		<p>Dear <strong>{{ username }}</strong>, Sorry! No one has read your email yet. Be strong, Be patient! :(</p>

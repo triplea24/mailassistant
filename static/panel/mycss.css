@@ -3,7 +3,9 @@ body{
 	padding-top: 20px;
 	font-family: 'Lato', sans-serif;
 	font:15px 'Lato', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-	background-color: #ddedc9;
+	background: linear-gradient(to left, #8ec64e, #41aba0 );
+	background: -webkit-linear-gradient(to left, #8ec64e , #41aba0 );
+	background-size: contain;
 }
 
 a{
@@ -32,7 +34,7 @@ li a {
 }
 
 li a:hover {
-    background-color: #999794;
+    background-color: #205550;
 }
 
 .active {
@@ -126,13 +128,13 @@ h3.last{
 .next_previous{
 	display: inline-block;
 	border-radius: 4px;
-	background-color: #7fb246;
+	background-color: #205550;
 	border: none;
 	color: #000000;
 	text-align: center;
 	font-size: 15px;
 	padding: 20px;
-	width: 180px;
+	width: 110px;
 	height: 40px;
 	transition: all 0.5s;
 	cursor: pointer;
@@ -144,13 +146,14 @@ h3.last{
 }
 
 .next_previous span {
+	line-height: 40px;
 	cursor: pointer;
 	display: inline-block;
 	position: relative;
 	transition: 0.5s;
 	color: white;
 	font-weight: bold;
-	font-size: 15px;
+	font-size: 18px;
 }
 
 .next_previous span:after {
