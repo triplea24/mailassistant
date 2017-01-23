@@ -17,7 +17,7 @@ ul {
     margin: 0;
     padding: 0;
     overflow: hidden;
-    background-color: #7fb246;
+    background-color: #205550;
     margin-top: -20px;
 }
 
@@ -34,7 +34,7 @@ li a {
 }
 
 li a:hover {
-    background-color: #205550;
+    background-color: #b3ddd9;
 }
 
 .active {
@@ -140,13 +140,14 @@ h3.last{
 	cursor: pointer;
 	margin: 5px;
 	float: right;
+	line-height: 40px;
+
 }
 .next_previous:hover span {
 	padding-right: 25px;
 }
 
 .next_previous span {
-	line-height: 40px;
 	cursor: pointer;
 	display: inline-block;
 	position: relative;
