@@ -596,17 +596,17 @@ a:active {
         -ms-transform: rotate(50deg);
          -o-transform: rotate(50deg);
             transform: rotate(50deg);
-background: -webkit-gradient(linear, left top, right bottom, color-stop(0%,#8ec64e), color-stop(100%,#41aba0));
-  background: -webkit-linear-gradient(-45deg, #8ec64e 0%,#41aba0 100%);
-  background: -o-linear-gradient(-45deg, #8ec64e 0%,#41aba0 100%);
-  background: -ms-linear-gradient(-45deg, #8ec64e 0%,#41aba0 100%);
-  background: linear-gradient(135deg, #8ec64e 0%,#41aba0 100%);
-  -webkit-transition: all 0.2s ease-in;
-  -moz-transition: all 0.2s ease-in;
-  -o-transition: all 0.2s ease-in;
-  -ms-transition: all 0.2s ease-in;
-  -khtml-transition: all 0.2s ease-in;
-  transition: all 0.2s ease-in;
+	background: -webkit-gradient(linear, left top, right bottom, color-stop(0%,#8ec64e), color-stop(100%,#41aba0));
+	background: -webkit-linear-gradient(-45deg, #8ec64e 0%,#41aba0 100%);
+	background: -o-linear-gradient(-45deg, #8ec64e 0%,#41aba0 100%);
+	background: -ms-linear-gradient(-45deg, #8ec64e 0%,#41aba0 100%);
+	background: linear-gradient(135deg, #8ec64e 0%,#41aba0 100%);
+	-webkit-transition: all 0.2s ease-in;
+	-moz-transition: all 0.2s ease-in;
+	-o-transition: all 0.2s ease-in;
+	-ms-transition: all 0.2s ease-in;
+	-khtml-transition: all 0.2s ease-in;
+	transition: all 0.2s ease-in;
 }
 
 .service:hover .icon-box .icon {
@@ -614,8 +614,9 @@ background: -webkit-gradient(linear, left top, right bottom, color-stop(0%,#8ec6
 }
 
 .service .team_member{
-  height:250px;
-  width: 250px;
+  height:300px;
+  width: 300px;
+
 
 }
 .service .icon-box .icon i {
