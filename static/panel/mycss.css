@@ -45,7 +45,7 @@ li a:hover {
 .mailbox{
 	display: block;
 	border : none;
-	border-top : 1px solid #ccc;
+	/*border-top : 1px solid #ccc;*/
 	text-align: left;
 	cursor: pointer;
 	overflow: hidden;
@@ -71,12 +71,12 @@ li a:hover {
 h1,h2,h3,h4,h5,h6{
 		color: #4a4849;
 		font-family: 'Lato', sans-serif;
-		font: 23px 'Lato', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+		font: 24px 'Lato', 'Helvetica Neue', Helvetica, Arial, sans-serif;
 		font-weight: bold;
 }
 
 .mailbox p{
-	color: #c1c1c1;
+	color: #4a4849;
 	margin-top: -10px;
 }
 
