@@ -48,7 +48,6 @@ li a:hover {
 	border-top : 1px solid #ccc;
 	text-align: left;
 	cursor: pointer;
-	padding-bottom: 5px;
 	overflow: hidden;
 	float: left;
 }
