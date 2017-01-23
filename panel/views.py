@@ -9,7 +9,6 @@ from django.contrib.auth.models import User
 from django.shortcuts import redirect
 # Create your views here.
 
-# @login_required(login_url = '/register/')
 def index(request):
 	# t = loader.get_template('index.html')
     # c = {'foo': 'bar'}
@@ -17,12 +16,10 @@ def index(request):
     # return HttpResponse("Index")
     # user = request.user
     # if user is not None and user.is_authenticated:
-    user = request.user
-    if user is not None and user.is_authenticated:
+    # user = request.user
+    if request.user.is_authenticated():
         return redirect('/dashboard')
-    return render(request, 'landing.html')    
-    # else:
-        # return redirect('/register/')
+    return render(request, 'landing.html')
 
 def register_view(request):
     # user = request.user
