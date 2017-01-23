@@ -616,9 +616,9 @@ a:active {
 .service .team_member{
   height:300px;
   width: 300px;
-
-
+  border-radius: 50%;
 }
+
 .service .icon-box .icon i {
     color: #fff;
     font-size: 30px;
