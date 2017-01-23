@@ -3,7 +3,7 @@ body{
 	padding-top: 20px;
 	font-family: 'Lato', sans-serif;
 	font:15px 'Lato', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-	background-color: #fffdf7;
+	background-color: #ddedc9;
 }
 
 a{
@@ -15,7 +15,7 @@ ul {
     margin: 0;
     padding: 0;
     overflow: hidden;
-    background-color: #E78650;
+    background-color: #7fb246;
     margin-top: -20px;
 }
 
@@ -25,7 +25,7 @@ li {
 
 li a {
     display: block;
-    color: #fffdf7;
+    color: #ddedc9;
     text-align: center;
     padding: 14px 16px;
     text-decoration: none;
@@ -62,7 +62,7 @@ li a:hover {
 }
 
 .mailbox:hover{
-	background-color: #fff7d0;
+	background-color: #bbdc94;
 }
 
 h1,h2,h3,h4,h5,h6{
@@ -126,7 +126,7 @@ h3.last{
 .next_previous{
 	display: inline-block;
 	border-radius: 4px;
-	background-color: #E78650;
+	background-color: #7fb246;
 	border: none;
 	color: #000000;
 	text-align: center;
