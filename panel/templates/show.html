@@ -40,11 +40,11 @@
 	</div>
 
 	{% if mail.count > 0 %}
-		<h3 class="last">LATEST EMAIL OPENS</h3>
+		<p class="last">LATEST EMAIL OPENS</p>
 		{% for log in logs %}
 			<div class="insidemail">
 				<div class="shape"></div>
-				<h4>One of the recepients read this email</h4>
+				<p>One of the recepients read this email</p>
 				<p>{{ log.timestamp }}</p>
 			</div>
 		{% endfor %}
