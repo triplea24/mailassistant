@@ -38,6 +38,7 @@ ul {
     padding: 0;
     overflow: hidden;
     background-color: #333;
+    margin-top: -10px;
 }
 li {
     float: right;
@@ -47,7 +48,7 @@ li a {
     display: block;
     color: #fffdf7;
     text-align: center;
-    padding: 5px 5px;
+    padding: 10px 10px;
     text-decoration: none;
 }
 li a:hover {
