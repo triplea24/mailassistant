@@ -9,7 +9,7 @@ from django.contrib.auth.models import User
 from django.shortcuts import redirect
 from django.shortcuts import render_to_response
 from django.template.context_processors import csrf
-from panel.models import Messsage
+from panel.models import Message
 # Create your views here.
 
 def index(request):
@@ -45,7 +45,7 @@ def register(request):
     user = User.objects.create_user(username = username,password = password,first_name = firstname , last_name = lastname,email = email)
 
     user = authenticate(username=username, password=password)
-    
+
     if user is not None:
         auth_login(request, user)
     else:
@@ -128,6 +128,6 @@ def contact(request):
     name = request.POST['name']
     email = request.POST['email']
     message = request.POST['message']
-    message = Messsage.objects.create_message(name = name , email = email , message = message)
+    message = Message(name = name , email = email , message = message)
     message.save()
     return HttpResponse('')
