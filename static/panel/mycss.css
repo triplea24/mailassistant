@@ -55,18 +55,6 @@ a
 	height: 40px;
 }
 
-.header compose{
-	width: 100px;
-	height: 20px;
-	float: right;
-	background-color: #d14836;
-    /*background-image: -webkit-linear-gradient(top,#dd4b39,#d14836);*/
-    /*background-image: linear-gradient(top,#dd4b39,#d14836);*/
-    color: #fff;
-    border: 1px solid transparent;
-    border: 1px solid transparent;
-}
-
 .mailbox:hover
 {
 	background-color: #fff7d0;
