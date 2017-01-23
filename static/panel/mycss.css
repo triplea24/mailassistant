@@ -58,6 +58,7 @@ li a:hover {
 	display: block;
 	border : none;
 	float: left;
+	margin: 10px;
 	padding-left: 20px;
 	padding-right: 20px;
 	width: 100px;
