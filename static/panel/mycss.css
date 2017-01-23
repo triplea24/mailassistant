@@ -90,7 +90,7 @@ h1,h2,h3,h4,h5,h6{
 	position: relative;
 }
 
-h3.last{
+p.last{
 	font-family: 'Lato', sans-serif;
 	font:10px 'Lato', 'Helvetica Neue', Helvetica, Arial, sans-serif;
 	color: #c8c8c8;
