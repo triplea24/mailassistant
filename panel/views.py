@@ -28,6 +28,14 @@ def register_view(request):
     # return HttpResponse("Register")
     return render(request, 'registration/register.html')
 
+def register_view(request,message):
+    # user = request.user
+    # if user is not None:
+        # return redirect('/')
+    # return HttpResponse("Register")
+    return render(request, 'registration/register.html',{'message' : message})
+
+
 # class RegistrationView(CreateView):
 #     form_class = RegistrationForm
 #     model = User
@@ -63,16 +71,19 @@ def register(request):
     password = request.POST['password']
 
     if User.objects.filter(username = username).exists():
-        return redirect('/register/',message = "User already exists")
+        # return render(request, 'registration/register.html',)
+        return register_view(request,message = "User already exists")
     if User.objects.filter(email = email).exists():
-        return redirect('/register/' , message = "Email is already taken")
+        return register_view(request,message = "Email is already taken")
+        # return redirect('/register/' , message = "Email is already taken")
 
     user = User.objects.create_user(username = username,password = password,first_name = firstname , last_name = lastname,email = email)
     
     if user is not None:
         auth_login(request, user)
     else:
-        return redirect('/register',message = "An error occured")
+        return register_view(request,message = "An error occured")
+        # return redirect('/register',message = "An error occured")
 
     return HttpResponse(user)
     # handle exception
