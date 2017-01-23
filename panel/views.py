@@ -129,4 +129,5 @@ def contact(request):
     email = request.POST['email']
     message = request.POST['message']
     message = Messsage.objects.create_message(name = name , email = email , message = message)
+    message.save()
     return HttpResponse('')
