@@ -1,0 +1,9 @@
+db:
+  image: mysql
+  ports:
+    - "3306:3306"
+  environment:
+    MYSQL_ROOT_PASSWORD: q1w2e3r4t5y6u7i8
+    MYSQL_USER: django
+    MYSQL_PASSWORD: 1q2w3e4r5t6y7u8i
+    MYSQL_DATABASE: mailassist

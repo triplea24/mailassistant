@@ -1,3 +1,4 @@
 Django==1.8.1
 djangorestframework==3.5.3
 pytz==2012c
+user-agents==1.0.1
