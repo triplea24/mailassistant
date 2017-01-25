@@ -42,16 +42,23 @@
     				{% else %}
     				    <p>Not read yet </p>
     				{% endif %}
-    				    <p>To: <span>farzam.mirmoeini@gmail.com</span><span>,</span> </p>
+    				    <p>To :
+    				        {% for to in tos %}
+    				        <span>{{ to.email }}</span>
+    				        <% endfor %}
+    				    </p>
     			</div>
     		</a>
     	{% endfor %}
+
     	{% if mails.has_previous %}
             <a href="?page={{ mails.previous_page_number }}">previous</a>
     	{% endif %}
+
     	{% if mails.has_next %}
             <a href="?page={{ mails.next_page_number }}">next</a>
     	{% endif %}
+
     {% else %}
         <p>You don't have any email yet</p>
     {% endif %}

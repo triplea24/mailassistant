@@ -12,7 +12,7 @@ class Mail(models.Model):
 	last_read = models.DateTimeField(blank = True , null = True)
 	count = models.IntegerField(default = 0)
 	track_key = models.CharField(max_length = keyLength, unique = True , blank = True)
-	
+
 class Receiver(models.Model):
 	mail = models.ForeignKey(Mail)
 	email = models.EmailField()
