@@ -75,8 +75,14 @@ def panel(request):
 
     total = Mail.objects.count()
 
-    
+
     # res = []
+    # datas = []
+    # for mail in mails:
+    #     to = Receiver.objects.filter(mail = mail , type_of_receiption = 'T')
+    #     cc = Receiver.objects.filter(mail = mail , type_of_receiption = 'C')
+    #     bcc = Receiver.objects.filter(mail = mail , type_of_receiption = 'B')
+    #     # datas.append({})
 
 
     paginator = Paginator(mails, 5)
@@ -104,7 +110,7 @@ def panel(request):
         tos.append(to)
         ccs.append(cc)
         bccs.append(bcc)
-        
+
     # for mail in res:
 
     #     res.append({'mail':mail,'to':to,'cc':cc,'bcc':bcc})
