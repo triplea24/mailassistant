@@ -22,9 +22,9 @@
 
 
     {% load tz %}
-    <div class="mailbox">
     {% if mails|length > 0 %}
     	{% for mail in mails %}
+    	    <div class="mailbox">
     		<a href="/dashboard/show/{{mail.track_key}}">
 
                 <div class="mailstatus">
@@ -45,6 +45,7 @@
     				<p>To : {{forloop.counter0 }}</p>
     			</div>
     		</a>
+    		</div>
     	{% endfor %}
 
 		{% if mails.has_previous %}
@@ -58,7 +59,7 @@
     {% else %}
         <p>You don't have any email yet</p>
     {% endif %}
-    </div>
+
 </body>
 </html>
 
