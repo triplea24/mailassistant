@@ -24,7 +24,7 @@
     {% load tz %}
     <div class="mailbox">
     {% if mails|length > 0 %}
-    	{% for i in range(0,len(mails)) %}
+    	{% for i in range(0,mails|length) %}
     		<a href="/dashboard/show/{{mail.track_key}}">
 
                 <div class="mailstatus">
