@@ -2,7 +2,7 @@ from django.shortcuts import render
 from django.http import HttpResponse
 from django.contrib.auth.models import User, Group
 from rest_framework import viewsets, mixins
-from .models import Log,Mail
+from .models import Log,Mail,Receiver
 from .serializers import UserSerializer, GroupSerializer , MailSerializer, LogSerializer
 from rest_framework import filters
 from rest_framework import generics
@@ -11,6 +11,37 @@ from user_agents import parse as request_parser
 from time import time
 from datetime import datetime
 from PIL import Image
+from django.db import transaction
+
+
+def new_mail(request):
+    if request.user.is_authenticated():
+        user = request.user
+        timestamp = request.POST['timestamp']
+        subject = request.POST['subject']
+        count = 0
+        track_key = request.POST['track_key']
+            
+        with transaction.atomic():
+            mail = Mail(sender = user , timestamp = timestamp ,count = count , track_key = track_key)
+            mail.save()
+            tos = request.POST['tos']
+            for to in tos:
+                email = to['email']
+                receiver = Receiver(mail = mail, email = email, type_of_receiption = 'T')
+                receiver.save()
+            ccs = request.POST['ccs']
+            for cc in ccs:
+                email = cc['email']
+                receiver = Receiver(mail = mail, email = email, type_of_receiption = 'C')
+                receiver.save()
+            bccs = request.POST['ccs']
+            for bcc in bccs:
+                email = bcc['email']
+                receiver = Receiver(mail = mail, email = email, type_of_receiption = 'B')
+                receiver.save()
+                
+        return HttpResponse('')
 
 def track(request,uuid):
     list_of_mails = Mail.objects.filter(track_key = uuid)
