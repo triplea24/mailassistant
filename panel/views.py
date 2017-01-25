@@ -76,14 +76,10 @@ def panel(request):
     total = Mail.objects.count()
 
     
-    res = []
-    for mail in mails:
-        to = Receiver.objects.filter(mail = mail , type_of_receiption = 'T')
-        cc = Receiver.objects.filter(mail = mail , type_of_receiption = 'C')
-        bcc = Receiver.objects.filter(mail = mail , type_of_receiption = 'B')
-        res.append({'mail':mail,'to':to,'cc':cc,'bcc':bcc})
+    # res = []
 
-    paginator = Paginator(res, 5)
+
+    paginator = Paginator(mails, 5)
 
     page = request.GET.get('page')
     try:
@@ -98,13 +94,25 @@ def panel(request):
     start = res.start_index()
     end = res.end_index()
 
+    tos = []
+    ccs = []
+    bccs = []
+    for mail in res.object_list:
+        to = Receiver.objects.filter(mail = mail , type_of_receiption = 'T')
+        cc = Receiver.objects.filter(mail = mail , type_of_receiption = 'C')
+        bcc = Receiver.objects.filter(mail = mail , type_of_receiption = 'B')
+        tos.append(to)
+        ccs.append(cc)
+        bccs.append(bcc)
+        
+    # for mail in res:
 
+    #     res.append({'mail':mail,'to':to,'cc':cc,'bcc':bcc})
     # return HttpResponse('page : %s' % str(page))
-
     # if request.is_ajax():
     #     return HttpResponse(str(res))
 
-    return render(request, 'index.html', {'mails': res,'start' : start , 'end' : end , 'total' : total , 'page' : page})
+    return render(request, 'index.html', {'mails': res,'tos' : tos, 'ccs' : ccs, 'bccs' : bccs ,'start' : start , 'end' : end , 'total' : total , 'page' : page})
 
 @login_required(login_url = '/register/')
 def show(request,track_key):
