@@ -28,22 +28,22 @@
     		<a href="/dashboard/show/{{mail.track_key}}">
 
                 <div class="mailstatus">
-                    {% if mail.count > 0%}
+                    {% if mail.mail.count > 0%}
                         <img src="{% static "panel/mail/read.png" %}" width="120px" height="120px">
                     {% else %}
                         <img src="{% static "panel/mail/not_read.png" %}" width="120px" height="120px">
                     {% endif %}
                 </div>
             	<div class="details">
-    				<h3>{{ mail.subject }}</h3>
+    				<h3>{{ mail.mail.subject }}</h3>
     				{% if mail.count > 0 %}
-    				    <p>{{ mail.last_read }}</p>
-    				    <p>Read {{ mail.count }} time{% if mail.count > 1%}s{% endif %}</p>
+    				    <p>{{ mail.mail.last_read }}</p>
+    				    <p>Read {{ mail.mail.count }} time{% if mail.mail.count > 1%}s{% endif %}</p>
     				{% else %}
     				    <p>Not read yet </p>
     				{% endif %}
     				<p>To :
-    				{% for to in tos %}
+    				{% for to in mail.to %}
     					<span>{{ to.email }}</span>
     				{% endfor %}
     				</p>

@@ -75,8 +75,15 @@ def panel(request):
 
     total = Mail.objects.count()
 
+    
+    res = []
+    for mail in mails:
+        to = Receiver.objects.filter(mail = mail , type_of_receiption = 'T')
+        cc = Receiver.objects.filter(mail = mail , type_of_receiption = 'C')
+        bcc = Receiver.objects.filter(mail = mail , type_of_receiption = 'B')
+        res.append({'mail':mail,'to':to,'cc':cc,'bcc':bcc})
 
-    paginator = Paginator(mails, 5)
+    paginator = Paginator(res, 5)
 
     page = request.GET.get('page')
     try:
@@ -90,6 +97,8 @@ def panel(request):
         page = paginator.num_pages
     start = res.start_index()
     end = res.end_index()
+
+
     # return HttpResponse('page : %s' % str(page))
 
     # if request.is_ajax():
