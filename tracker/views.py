@@ -17,30 +17,33 @@ from django.db import transaction
 def new_mail(request):
     if request.user.is_authenticated():
         user = request.user
-        timestamp = request.POST['timestamp']
-        subject = request.POST['subject']
+        timestamp = request.GET['timestamp']
+        subject = request.GET['subject']
         count = 0
-        track_key = request.POST['track_key']
+        track_key = request.GET['track_key']
             
         with transaction.atomic():
             mail = Mail(sender = user , timestamp = timestamp ,count = count , track_key = track_key)
             mail.save()
-            tos = request.POST['tos']
-            for to in tos:
-                email = to['email']
-                receiver = Receiver(mail = mail, email = email, type_of_receiption = 'T')
-                receiver.save()
-            ccs = request.POST['ccs']
-            for cc in ccs:
-                email = cc['email']
-                receiver = Receiver(mail = mail, email = email, type_of_receiption = 'C')
-                receiver.save()
-            bccs = request.POST['ccs']
-            for bcc in bccs:
-                email = bcc['email']
-                receiver = Receiver(mail = mail, email = email, type_of_receiption = 'B')
-                receiver.save()
-                
+            if 'tos' in request.GET:
+                tos = request.GET['tos']
+                for to in tos:
+                    email = to['email']
+                    receiver = Receiver(mail = mail, email = email, type_of_receiption = 'T')
+                    receiver.save()
+            if 'ccs' in request.GET:
+                ccs = request.GET['ccs']
+                for cc in ccs:
+                    email = cc['email']
+                    receiver = Receiver(mail = mail, email = email, type_of_receiption = 'C')
+                    receiver.save()
+            if 'bccs' in request.GET:
+                bccs = request.GET['bccs']
+                for bcc in bccs:
+                    email = bcc['email']
+                    receiver = Receiver(mail = mail, email = email, type_of_receiption = 'B')
+                    receiver.save()
+
         return HttpResponse('')
 
 def track(request,uuid):

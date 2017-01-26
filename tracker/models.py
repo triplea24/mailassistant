@@ -7,7 +7,7 @@ from django.dispatch import receiver
 class Mail(models.Model):
 	keyLength = 36
 	sender = models.ForeignKey(User)
-	timestamp = models.DateTimeField(null=True)
+	timestamp = models.DateTimeField(auto_now_add= True,null=True)
 	subject = models.TextField()
 	last_read = models.DateTimeField(blank = True , null = True)
 	count = models.IntegerField(default = 0)
