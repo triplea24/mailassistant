@@ -25,21 +25,21 @@ def new_mail(request):
         with transaction.atomic():
             mail = Mail(sender = user , subject = subject , timestamp = timestamp ,count = count , track_key = track_key)
             mail.save()
-            tos = request.GET['tos']
-            for to in tos:
-                # email = to['email']
-                receiver = Receiver(mail = mail, email = to, type_of_receiption = 'T')
-                receiver.save()
-            ccs = request.GET['ccs']
-            for cc in ccs:
-                # email = cc['email']
-                receiver = Receiver(mail = mail, email = cc, type_of_receiption = 'C')
-                receiver.save()
-            bccs = request.GET['ccs']
-            for bcc in bccs:
-                # email = bcc['email']
-                receiver = Receiver(mail = mail, email = bcc, type_of_receiption = 'B')
-                receiver.save()
+            if 'tos' in request.GET:
+                tos = request.GET['tos']
+                for to in tos:
+                    receiver = Receiver(mail = mail, email = to, type_of_receiption = 'T')
+                    receiver.save()
+            if 'ccs' in request.GET:
+                ccs = request.GET['ccs']
+                for cc in ccs:
+                    receiver = Receiver(mail = mail, email = cc, type_of_receiption = 'C')
+                    receiver.save()
+            if 'bccs' in request.GET:
+                bccs = request.GET['bccs']
+                for bcc in bccs:
+                    receiver = Receiver(mail = mail, email = bcc, type_of_receiption = 'B')
+                    receiver.save()
 
         return HttpResponse('')
 

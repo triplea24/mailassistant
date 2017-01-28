@@ -119,3 +119,4 @@ USE_TZ = True
 STATIC_ROOT = os.path.join(BASE_DIR, "static")
 STATIC_URL = '/static/'
 LOGIN_REDIRECT_URL = 'dashboard'
+SECURE_SSL_REDIRECT = True
